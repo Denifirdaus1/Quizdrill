@@ -1,0 +1,33 @@
+<!-- DASHBOARD -->
+<section id="view-dashboard" class="view active">
+  <div class="view-header">
+    <h2>Dashboard</h2>
+    <p class="subtitle">Overview Persiapan</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-value" id="totalQuestions">0</span>
+      <span class="stat-label">Total Soal</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="totalSessions">0</span>
+      <span class="stat-label">Sesi</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="avgAccuracy">—</span>
+      <span class="stat-label">Akurasi</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="weakQuestions">0</span>
+      <span class="stat-label">Lemah</span>
+    </div>
+  </div>
+  <div class="dashboard-actions">
+    <button class="btn btn-primary btn-lg" onclick="App.navigate('quiz')">Mulai Latihan</button>
+    <button class="btn btn-secondary btn-lg" onclick="App.startFocusMode()">Focus Mode</button>
+  </div>
+  <div class="session-history">
+    <h3>Riwayat Terakhir</h3>
+    <div id="sessionHistory" class="history-list"></div>
+  </div>
+</section>

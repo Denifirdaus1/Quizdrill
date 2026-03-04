@@ -1,0 +1,18 @@
+<!-- BANK SOAL -->
+<section id="view-questions" class="view">
+    <div class="view-header">
+        <h2>Bank Soal</h2>
+        <div class="view-actions">
+            <button class="btn btn-primary" onclick="App.showAddQuestion()">Tambah Soal</button>
+            <button class="btn" onclick="App.showImport()">Import</button>
+        </div>
+    </div>
+    <div class="question-filters">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="pg">PG</button>
+        <button class="filter-btn" data-filter="essay">Essay</button>
+        <button class="filter-btn" data-filter="weak">Lemah</button>
+        <button class="filter-btn" data-filter="flagged">Ditandai</button>
+    </div>
+    <div id="questionList" class="question-list"></div>
+</section>

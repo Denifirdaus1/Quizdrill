@@ -1,0 +1,402 @@
+{
+  "soal_1": {
+    "teks": "Nilai dari $\\frac{a^3 b^{-2} c^6}{a b c}$, untuk $a = 5$, $b = 2$, dan $c = 1$ adalah……",
+    "pilihan_jawaban": {
+      "A": "25",
+      "B": "8",
+      "C": "$\\frac{25}{8}$",
+      "D": "$\\frac{8}{25}$",
+      "E": "-25"
+    }
+  },
+  "soal_2": {
+    "teks": "Bentuk sederhana dari $\\frac{10 x^8 y^5}{5 x^7 y^4}$ adalah……",
+    "pilihan_jawaban": {
+      "A": "$5 x^7 y^2$",
+      "B": "$2 x^7 y^2$",
+      "C": "$2 x y^2$",
+      "D": "$2 x^2 y$",
+      "E": "$2 x y$"
+    }
+  },
+  "soal_3": {
+    "teks": "Nilai dari $3 \\log{2} . 2 \\log{12} + 3 \\log{2} - 3 \\log{8} = ...$",
+    "pilihan_jawaban": {
+      "A": "-2",
+      "B": "-1",
+      "C": "1",
+      "D": "2",
+      "E": "3"
+    }
+  },
+  "soal_4": {
+    "teks": "Bentuk sederhana dari pecahan $4 \\sqrt{125} - 3 \\sqrt{80} + 2 \\sqrt{245}$ adalah ....",
+    "pilihan_jawaban": {
+      "A": "$20 \\sqrt{5}$",
+      "B": "$-18 \\sqrt{5}$",
+      "C": "$-20 \\sqrt{5}$",
+      "D": "$18 \\sqrt{5}$",
+      "E": "$22 \\sqrt{5}$"
+    }
+  },
+  "soal_5": {
+    "teks": "Ani membeli $3$ buku dan $5$ bolpoint, ia harus membayar $\\text{Rp}19.000,00$. Sementara Nina di toko yang sama membeli $8$ buku dan $4$ bolpoint dengan membayar $\\text{Rp}32.000,00$. Jika Doni ingin membeli $10$ buku dan $5$ bolpoin di toko tersebut juga maka uang yang harus dibayarkannya adalah...",
+    "pilihan_jawaban": {
+      "A": "$\\text{Rp}40.000,00$",
+      "B": "$\\text{Rp}28.000,00$",
+      "C": "$\\text{Rp}35.000,00$",
+      "D": "$\\text{Rp}10.000,00$",
+      "E": "$\\text{Rp}13.000,00$"
+    }
+  },
+  "soal_6": {
+    "teks": "Tempat parkir seluas $320 \\text{ m}^2$ dapat menampung tidak lebih dari $30$ kendaraan. Untuk parkir sebuah minibus diperlukan rata-rata $8 \\text{ m}^2$ dan sebuah bus $24 \\text{ m}^2$. Jika banyak minibus dinyatakan $x$ dan bus dinyatakan $y$ maka model matematikanya adalah….",
+    "pilihan_jawaban": {
+      "A": "$x + y \\le 30$ ; $x + 3y \\le 40$ ; $x \\ge 0$ ; $y \\ge 0$",
+      "B": "$x + y \\le 30$ ; $x + 3y \\ge 40$ ; $x \\ge 0$ ; $y \\ge 0$",
+      "C": "$x + y \\ge 30$ ; $x + 3y \\le 40$ ; $x \\ge 0$ ; $y \\ge 0$",
+      "D": "$x + y \\ge 30$ ; $x + 3y \\ge 40$ ; $x \\ge 0$ ; $y \\ge 0$",
+      "E": "$x + y \\ge 30$ ; $x + 3y \\ge 40$ ; $x \\ge 0$ ; $y \\ge 0$"
+    }
+  },
+  "soal_7": {
+    "teks": "Tentukan nilai maksimum dari $f(x,y) = 5x + 4y$ adalah…..",
+    "pilihan_jawaban": {
+      "A": "20",
+      "B": "16",
+      "C": "23",
+      "D": "24",
+      "E": "25"
+    }
+  },
+  "soal_8": {
+    "teks": "Balok $ABCD.EFGH$, dengan panjang $8 \\text{ cm}$, lebar $6 \\text{ cm}$ dan tinggi $10 \\text{ cm}$, maka jarak antara titik $A$ dan $C$ adalah……",
+    "pilihan_jawaban": {
+      "A": "$6 \\text{ cm}$",
+      "B": "$8 \\text{ cm}$",
+      "C": "$10 \\text{ cm}$",
+      "D": "$12 \\text{ cm}$",
+      "E": "$14 \\text{ cm}$"
+    }
+  },
+  "soal_9": {
+    "teks": "Kubus $ABCD.EFGH$ dengan panjang rusuk $8 \\text{ cm}$, maka jarak antara garis $AB$ dan garis $HG$ adalah….",
+    "pilihan_jawaban": {
+      "A": "$5 \\text{ cm}$",
+      "B": "$6 \\text{ cm}$",
+      "C": "$6 \\sqrt{2} \\text{ cm}$",
+      "D": "$8 \\text{ cm}$",
+      "E": "$8 \\sqrt{2} \\text{ cm}$"
+    }
+  },
+  "soal_10": {
+    "teks": "Diketahui tabung dengan diameter $14 \\text{ cm}$, dan tinggi $25 \\text{ cm}$, maka volume tabung tersebut adalah…",
+    "pilihan_jawaban": {
+      "A": "$7700 \\text{ cm}^3$",
+      "B": "$3850 \\text{ cm}^3$",
+      "C": "$3580 \\text{ cm}^3$",
+      "D": "$1078 \\text{ cm}^3$",
+      "E": "$1087 \\text{ cm}^3$"
+    }
+  },
+  "soal_11": {
+    "teks": "Suku ke-$3$ dari pola bilangan $16, 21, ..., 31, 36$ adalah…",
+    "pilihan_jawaban": {
+      "A": "25",
+      "B": "26",
+      "C": "27",
+      "D": "28",
+      "E": "29"
+    }
+  },
+  "soal_12": {
+    "teks": "Dari suatu barisan aritmatika diketahui suku ke-$5$ adalah $22$ dan suku ke-$12$ adalah $57$. Suku ke-$15$ barisan ini adalah…..",
+    "pilihan_jawaban": {
+      "A": "62",
+      "B": "68",
+      "C": "72",
+      "D": "74",
+      "E": "76"
+    }
+  },
+  "soal_13": {
+    "teks": "Suku ke-$7$ dari barisan $3, – 6, 12, – 24, ...$ adalah ….",
+    "pilihan_jawaban": {
+      "A": "– 192",
+      "B": "2.187",
+      "C": "192",
+      "D": "– 2187",
+      "E": "49.152"
+    }
+  },
+  "soal_14": {
+    "teks": "Pak Anwar membeli mobil dengan harga $\\text{Rp}80.000.000,00$. Setiap tahun nilai jualnya menjadi $\\frac{3}{4}$ dari harga sebelumnya. Berapakah nilai jual mobil tersebut setelah $3$ tahun?",
+    "pilihan_jawaban": {
+      "A": "$\\text{Rp}20.000.000,00$",
+      "B": "$\\text{Rp}25.312.500,00$",
+      "C": "$\\text{Rp}33.750.000,00$",
+      "D": "$\\text{Rp}35.000.000,00$",
+      "E": "$\\text{Rp}45.000.000,00$"
+    }
+  },
+  "soal_15": {
+    "teks": "Tangga yang panjangnya $14 \\text{ m}$ disandarkan pada dinding yang tingginya $7 \\text{ m}$, maka besar sudut yang dibentuk oleh tangga dan dinding adalah…",
+    "pilihan_jawaban": {
+      "A": "$30^\\circ$",
+      "B": "$60^\\circ$",
+      "C": "$75^\\circ$",
+      "D": "$90^\\circ$",
+      "E": "$120^\\circ$"
+    }
+  },
+  "soal_16": {
+    "teks": "Puncak sebuah tiang bendera dihubungkan ke tanah dengan seutas tali seperti pada gambar. Maka tinggi tiang bendera adalah….",
+    "pilihan_jawaban": {
+      "A": "$10 \\text{ m}$",
+      "B": "$12 \\text{ m}$",
+      "C": "$15 \\text{ m}$",
+      "D": "$18 \\text{ m}$",
+      "E": "$20 \\text{ m}$"
+    }
+  },
+  "soal_17": {
+    "teks": "Tentukan nilai dari sudut $\\sin 120^\\circ$!",
+    "pilihan_jawaban": {
+      "A": "1",
+      "B": "$\\frac{1}{2}\\sqrt{3}$",
+      "C": "$-\\frac{1}{2}\\sqrt{3}$",
+      "D": "$\\frac{1}{2}$",
+      "E": "0"
+    }
+  },
+  "soal_18": {
+    "teks": "Diketahui matriks $A = \\begin{bmatrix} 4 & 3 \\\\ -2 & 5 \\end{bmatrix}$, $B = \\begin{bmatrix} 1 & -7 \\\\ 5 & 2 \\end{bmatrix}$, $C = \\begin{bmatrix} 2 & 0 \\\\ 4 & -5 \\end{bmatrix}$. Tentukanlah nilai $A + 3B - C$!",
+    "pilihan_jawaban": {
+      "A": "$\\begin{bmatrix} 5 & 18 \\\\ 9 & 6 \\end{bmatrix}$",
+      "B": "$\\begin{bmatrix} 3 & 4 \\\\ -1 & 2 \\end{bmatrix}$",
+      "C": "$\\begin{bmatrix} 5 & -18 \\\\ 9 & 16 \\end{bmatrix}$",
+      "D": "$\\begin{bmatrix} 9 & 7 \\\\ 17 & 16 \\end{bmatrix}$",
+      "E": "$\\begin{bmatrix} -5 & -18 \\\\ 9 & 6 \\end{bmatrix}$"
+    }
+  },
+  "soal_19": {
+    "teks": "Jika matriks $A = \\begin{bmatrix} 3 & -2 \\\\ -1 & 4 \\end{bmatrix}$ dan $B = \\begin{bmatrix} -2 & 5 \\\\ -2 & 3 \\\\ -1 & 6 \\end{bmatrix}$ maka matriks $AB$ adalah…",
+    "pilihan_jawaban": {
+      "A": "$\\begin{bmatrix} -12 & 18 \\\\ 14 & -9 \\end{bmatrix}$",
+      "B": "$\\begin{bmatrix} -12 & 18 \\\\ 14 & -1 \\end{bmatrix}$",
+      "C": "$\\begin{bmatrix} -12 & 17 \\\\ -18 & 14 \\\\ -1 & 26 \\end{bmatrix}$",
+      "D": "$\\begin{bmatrix} -12 & 17 \\\\ -18 & 14 \\\\ -9 & 26 \\end{bmatrix}$",
+      "E": "$\\begin{bmatrix} 0 & 17 \\\\ -24 & -19 \\\\ -1 & 26 \\end{bmatrix}$"
+    }
+  },
+  "soal_20": {
+    "teks": "$\\det A = \\begin{vmatrix} 1 & 2 & 3 \\\\ 2 & 1 & 4 \\\\ 3 & 1 & 2 \\end{vmatrix}$ adalah……",
+    "pilihan_jawaban": {
+      "A": "10",
+      "B": "11",
+      "C": "-10",
+      "D": "-11",
+      "E": "12"
+    }
+  },
+  "soal_21": {
+    "teks": "Invers matriks $A = \\begin{bmatrix} 2 & 3 \\\\ -1 & -2 \\end{bmatrix}$ adalah $A^{-1} =$ ….",
+    "pilihan_jawaban": {
+      "A": "$\\begin{bmatrix} 2 & -3 \\\\ -1 & -2 \\end{bmatrix}$",
+      "B": "$\\begin{bmatrix} 2 & 3 \\\\ -1 & -2 \\end{bmatrix}$",
+      "C": "$\\begin{bmatrix} 2 & 3 \\\\ -1 & 2 \\end{bmatrix}$",
+      "D": "$\\begin{bmatrix} 2 & 3 \\\\ 1 & -2 \\end{bmatrix}$",
+      "E": "$\\begin{bmatrix} 2 & 3 \\\\ 1 & 2 \\end{bmatrix}$"
+    }
+  },
+  "soal_22": {
+    "teks": "Diketahui fungsi $f(x) = 2x + 3$ dan $g(x) = x^2 - 2x + 4$. Komposisi fungsi $(g \\circ f)(x)$ adalah …..",
+    "pilihan_jawaban": {
+      "A": "$2x^2 - 4x + 5$",
+      "B": "$2x^2 - 4x - 11$",
+      "C": "$4x^2 + 8x + 7$",
+      "D": "$4x^2 - 4x + 19$",
+      "E": "$4x^2 - 16x + 19$"
+    }
+  },
+  "soal_23": {
+    "teks": "Diketahui $f(x) = 3x + 4$. Maka nilai $f^{-1}(10)$ adalah …..",
+    "pilihan_jawaban": {
+      "A": "-4",
+      "B": "-2",
+      "C": "1",
+      "D": "2",
+      "E": "4"
+    }
+  },
+  "soal_24": {
+    "teks": "Jika diketahui $f(x) = 5x + 4$ dan $g(x) = 2x^2 + 5x - 10$, maka $f(x) + g(x)$ adalah…",
+    "pilihan_jawaban": {
+      "A": "$2x^2 + 5x - 14$",
+      "B": "$2x^2 + 5x - 6$",
+      "C": "$2x^2 + 10x - 10$",
+      "D": "$2x^2 + 10x - 6$",
+      "E": "$2x^2 + 10x - 14$"
+    }
+  },
+  "soal_25": {
+    "teks": "Persamaan lingkaran yang berpusat di $(3,4)$ dengan jari-jari $2$ adalah …",
+    "pilihan_jawaban": {
+      "A": "$(x - 3)^2 + (y - 4)^2 = 4$",
+      "B": "$(x - 3)^2 + (y + 4)^2 = 4$",
+      "C": "$(x + 3)^2 + (y - 4)^2 = 4$",
+      "D": "$(x - 3)^2 + (y - 4)^2 = 2$",
+      "E": "$(x - 3)^2 + (y + 4)^2 = 2$"
+    }
+  },
+  "soal_26": {
+    "teks": "Lingkaran dengan persamaan lingkaran $x^2 + y^2 - 4x + 2y + p = 0$ mempunyai jari-jari $3$. Nilai $p$ adalah ...",
+    "pilihan_jawaban": {
+      "A": "-1",
+      "B": "-2",
+      "C": "-3",
+      "D": "-4",
+      "E": "-5"
+    }
+  },
+  "soal_27": {
+    "teks": "Diberi angka $1, 2, 3, 4, 5,$ dan $6$ yang akan disusun bilangan terdiri dari tiga angka berbeda. Banyaknya bilangan lebih besar dari $500$ yang dapat disusun adalah…",
+    "pilihan_jawaban": {
+      "A": "20",
+      "B": "30",
+      "C": "35",
+      "D": "40",
+      "E": "80"
+    }
+  },
+  "soal_28": {
+    "teks": "Dari huruf-huruf $S, I, N, I, S$ maka jumlah kata yang dapat dibentuk adalah…..",
+    "pilihan_jawaban": {
+      "A": "12",
+      "B": "25",
+      "C": "30",
+      "D": "60",
+      "E": "120"
+    }
+  },
+  "soal_29": {
+    "teks": "Enam orang pejabat akan duduk pada $6$ kursi yang disusun secara melingkar. Banyak cara keenam pejabat tersebut duduk di kursi yang tersedia adalah…..",
+    "pilihan_jawaban": {
+      "A": "720 cara",
+      "B": "210 cara",
+      "C": "120 cara",
+      "D": "60 cara",
+      "E": "30 cara"
+    }
+  },
+  "soal_30": {
+    "teks": "Pada percobaan lempar undi dua dadu, peluang munculnya jumlah kedua mata dadu kurang dari $5$ atau jumlah mata dadu $8$ adalah…..",
+    "pilihan_jawaban": {
+      "A": "$\\frac{5}{36}$",
+      "B": "$\\frac{1}{36}$",
+      "C": "$\\frac{11}{36}$",
+      "D": "$\\frac{13}{36}$",
+      "E": "$\\frac{15}{36}$"
+    }
+  },
+  "soal_31": {
+    "teks": "Pada percobaan lempar undi dua buah dadu sebanyak $324$ kali. Frekuensi harapan muncul mata dadu berjumlah kelipatan $3$ adalah….",
+    "pilihan_jawaban": {
+      "A": "162",
+      "B": "108",
+      "C": "99",
+      "D": "72",
+      "E": "63"
+    }
+  },
+  "soal_32": {
+    "teks": "Diagram batang di bawah ini adalah data kegemaran dari $100$ siswa “SMK SUKSES“. Siswa yang tidak menggemari bulu tangkis sebanyak ….",
+    "pilihan_jawaban": {
+      "A": "60 orang",
+      "B": "40 orang",
+      "C": "25 orang",
+      "D": "20 orang",
+      "E": "5 orang"
+    }
+  },
+  "soal_33": {
+    "teks": "Nilai rata-rata dari tabel berikut adalah ...",
+    "pilihan_jawaban": {
+      "A": "6",
+      "B": "6,5",
+      "C": "7",
+      "D": "7,5",
+      "E": "8"
+    }
+  },
+  "soal_34": {
+    "teks": "Median dari data berat badan (dalam kg) dari $30$ siswa d bawah ini adalah….",
+    "pilihan_jawaban": {
+      "A": "44,5",
+      "B": "45,25",
+      "C": "45,75",
+      "D": "46,25",
+      "E": "46,75"
+    }
+  },
+  "soal_35": {
+    "teks": "Nilai dari $\\lim_{x \\to 1} \\frac{x^2 + 2x - 3}{x - 1}$ adalah ...",
+    "pilihan_jawaban": {
+      "A": "0",
+      "B": "2",
+      "C": "4",
+      "D": "-4",
+      "E": "-2"
+    }
+  },
+  "soal_36": {
+    "teks": "Nilai dari $\\frac{3x^2 + 2x^2 - 10}{6x^3 - x - 11}$ adalah ...",
+    "pilihan_jawaban": {
+      "A": "$\\frac{1}{4}$",
+      "B": "$\\frac{1}{2}$",
+      "C": "0",
+      "D": "2",
+      "E": "3"
+    }
+  },
+  "soal_37": {
+    "teks": "Diketahui $f(x) = 3x^3 + 4x + 8$. Jika turunan pertama $f(x)$ adalah $f'(x)$, maka nilai dari $f'(3)$ adalah…..",
+    "pilihan_jawaban": {
+      "A": "85",
+      "B": "101",
+      "C": "112",
+      "D": "115",
+      "E": "125"
+    }
+  },
+  "soal_38": {
+    "teks": "Turunan pertama dari $f(x) = (3x^2 - x) \\cdot 2x$",
+    "pilihan_jawaban": {
+      "A": "$18x^2 - 4x$",
+      "B": "$5x^2 - x$",
+      "C": "$6x^2 - 2x$",
+      "D": "$12x^2 - x$",
+      "E": "$6x^2 - x$"
+    }
+  },
+  "soal_39": {
+    "teks": "Nilai dari $\\int (x^2 + 4x + 1) dx = ...$",
+    "pilihan_jawaban": {
+      "A": "$x^3 + 4x^2 + 1$",
+      "B": "$x^3 + 4x^2 + C$",
+      "C": "$x^2 + 4x + C$",
+      "D": "$\\frac{1}{3}x^3 + x^2 + x + C$",
+      "E": "$\\frac{1}{3}x^3 + 2x^2 + x + C$"
+    }
+  },
+  "soal_40": {
+    "teks": "Nilai dari $\\int_{-1}^{2} (3x^2 + 4x + 5)dx$ adalah…..",
+    "pilihan_jawaban": {
+      "A": "22",
+      "B": "23",
+      "C": "25",
+      "D": "28",
+      "E": "30"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<!-- QUIZ ACTIVE -->
+<section id="view-quiz-active" class="view quiz-fullscreen">
+    <div class="quiz-topbar">
+        <div class="quiz-timer" id="quizTimer"><span id="timerDisplay">00:00</span></div>
+        <div style="text-align:center">
+            <div id="quizProgressText" style="font-weight:900; margin-bottom:4px;">0 / 0</div>
+            <div style="width:150px; height:4px; background:#eee;">
+                <div id="quizProgressBar" style="height:100%; background:#000; width:0;"></div>
+            </div>
+        </div>
+        <button class="btn btn-sm" onclick="App.endQuiz()">Selesai</button>
+    </div>
+    <div class="quiz-body">
+        <div id="quizQuestionImage" class="hidden" style="margin-bottom:32px;"></div>
+        <div id="quizQuestionText" class="question-text"></div>
+        <div id="quizOptions" class="quiz-options"></div>
+        <div id="quizAnswerFeedback" class="hidden"
+            style="margin-top:32px; padding:20px; border:2px solid #000; font-weight:800;"></div>
+        <div id="quizEssayInput" class="hidden" style="width:100%; max-width:800px; margin-top:32px;">
+            <textarea id="essayInput" rows="6" placeholder="Ketik jawaban..."></textarea>
+        </div>
+    </div>
+    <div
+        style="padding:32px 60px; border-top:2px solid #000; display:flex; justify-content:space-between; background:#fff;">
+        <button class="btn" onclick="App.prevQuestion()" id="prevBtn">Kembali</button>
+        <button class="btn" onclick="App.toggleFlag()" id="flagBtn">Tandai</button>
+        <button class="btn btn-primary" onclick="App.nextQuestion()" id="nextBtn">Lanjut</button>
+    </div>
+    <button id="gridToggle" class="btn" style="position:fixed; bottom:100px; right:20px; z-index:700;"
+        onclick="App.toggleGrid()">GRID</button>
+    <div id="questionGrid" class="hidden"
+        style="position:fixed; inset:0; background:rgba(255,255,255,0.98); z-index:800; padding:60px; overflow-y:auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
+            <h2 style="font-weight:900; text-transform:uppercase;">Navigasi Soal</h2>
+            <button class="btn" onclick="App.toggleGrid()">TUTUP</button>
+        </div>
+        <div id="gridItems" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(60px, 1fr)); gap:12px;">
+        </div>
+    </div>
+</section>

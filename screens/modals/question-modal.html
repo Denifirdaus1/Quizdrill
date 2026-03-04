@@ -1,0 +1,69 @@
+<!-- MODAL ADD/EDIT -->
+<div id="questionModal" class="modal">
+    <div class="modal-overlay" onclick="App.closeModal('questionModal')"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Tambah Soal</h3>
+            <button class="btn-close" onclick="App.closeModal('questionModal')">×</button>
+        </div>
+        <div class="modal-body">
+            <form id="questionForm" class="q-form-grid">
+                <input type="hidden" id="qEditId">
+                <div class="q-form-section">
+                    <div class="form-group">
+                        <label>Tipe Soal</label>
+                        <div class="toggle-group">
+                            <button type="button" class="toggle-btn active" data-type="pg"
+                                onclick="App.setQuestionType('pg')">PG</button>
+                            <button type="button" class="toggle-btn" data-type="essay"
+                                onclick="App.setQuestionType('essay')">ESSAY</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Pertanyaan</label>
+                        <textarea id="qText" rows="6" placeholder="Tulis soal..."></textarea>
+                        <div id="qPreview" class="latex-preview"
+                            style="margin-top:12px; border:1px solid #eee; padding:10px; display:none;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Gambar</label>
+                        <div class="upload-zone" onclick="document.getElementById('qImage').click()"
+                            style="cursor:pointer; padding:20px; border:2px dashed #ccc; text-align:center;">
+                            <input type="file" id="qImage" accept="image/*" hidden
+                                onchange="App.handleQuestionImage(event)">
+                            <span class="upload-placeholder">Klik untuk upload gambar</span>
+                        </div>
+                        <img id="qImagePreview" style="max-width:100%; margin-top:10px;" class="hidden">
+                    </div>
+                </div>
+                <div class="q-form-section right">
+                    <div id="pgOptions">
+                        <label style="display:block; font-size:0.7rem; font-weight:900; margin-bottom:12px;">OPSI
+                            JAWABAN</label>
+                        <div class="options-list">
+                            <div class="option-row"><input type="radio" name="correctOpt" value="0" checked><input
+                                    type="text" class="option-input" placeholder="Opsi A"></div>
+                            <div class="option-row"><input type="radio" name="correctOpt" value="1"><input type="text"
+                                    class="option-input" placeholder="Opsi B"></div>
+                            <div class="option-row"><input type="radio" name="correctOpt" value="2"><input type="text"
+                                    class="option-input" placeholder="Opsi C"></div>
+                            <div class="option-row"><input type="radio" name="correctOpt" value="3"><input type="text"
+                                    class="option-input" placeholder="Opsi D"></div>
+                            <div class="option-row"><input type="radio" name="correctOpt" value="4"><input type="text"
+                                    class="option-input" placeholder="Opsi E"></div>
+                        </div>
+                    </div>
+                    <div id="essayAnswer" class="hidden">
+                        <label>JAWABAN BENAR</label>
+                        <textarea id="qEssayAnswer" rows="4" placeholder="Kunci jawaban essay..."></textarea>
+                    </div>
+                    <div style="margin-top:32px; display:flex; gap:12px;">
+                        <button type="submit" class="btn btn-primary" style="flex:1">Simpan</button>
+                        <button type="button" class="btn" style="flex:1"
+                            onclick="App.closeModal('questionModal')">Batal</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

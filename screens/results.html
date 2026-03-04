@@ -1,0 +1,25 @@
+<!-- RESULTS -->
+<section id="view-results" class="view">
+    <div class="view-header">
+        <h2>Hasil Akhir</h2>
+    </div>
+    <div style="text-align:center; margin-bottom:60px;">
+        <div id="scorePercent" style="font-size:8rem; font-weight:900; line-height:1;">0%</div>
+        <p style="font-weight:800; text-transform:uppercase; letter-spacing:4px; margin-top:12px;">Skor Anda</p>
+    </div>
+    <div class="stats-overview">
+        <div class="stat-card"><span class="stat-value" id="resCorrect">0</span><span class="stat-label">Benar</span>
+        </div>
+        <div class="stat-card"><span class="stat-value" id="resWrong">0</span><span class="stat-label">Salah</span>
+        </div>
+        <div class="stat-card"><span class="stat-value" id="resSkipped">0</span><span class="stat-label">Dilewati</span>
+        </div>
+        <div class="stat-card"><span class="stat-value" id="resTime">—</span><span class="stat-label">Durasi</span>
+        </div>
+    </div>
+    <div style="display:flex; gap:16px; margin-bottom:60px;">
+        <button class="btn btn-primary btn-lg" style="flex:1" onclick="App.reviewAnswers()">Review Jawaban</button>
+        <button class="btn btn-lg" style="flex:1" onclick="App.navigate('dashboard')">Ke Dashboard</button>
+    </div>
+    <div id="reviewSection" class="review-section hidden"></div>
+</section>

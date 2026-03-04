@@ -1,0 +1,52 @@
+<!-- SETUP QUIZ -->
+<section id="view-quiz" class="view">
+    <div class="view-header">
+        <h2>Konfigurasi</h2>
+        <p class="subtitle">Pilih Mode Latihan</p>
+    </div>
+    <div class="quiz-setup">
+        <div class="setup-grid">
+            <label class="setup-option">
+                <input type="radio" name="quizMode" value="all" checked>
+                <div class="option-card">
+                    <span class="option-title">Semua</span>
+                    <span class="option-desc" id="allCount">0 soal</span>
+                </div>
+            </label>
+            <label class="setup-option">
+                <input type="radio" name="quizMode" value="focus">
+                <div class="option-card">
+                    <span class="option-title">Focus</span>
+                    <span class="option-desc" id="focusCount">Soal Lemah</span>
+                </div>
+            </label>
+            <label class="setup-option">
+                <input type="radio" name="quizMode" value="flagged">
+                <div class="option-card">
+                    <span class="option-title">Flagged</span>
+                    <span class="option-desc" id="flaggedCount">0 soal</span>
+                </div>
+            </label>
+        </div>
+        <div class="setup-settings">
+            <div class="form-group" style="margin-bottom:0;">
+                <label>Timer (Menit)</label>
+                <input type="number" id="timerInput" placeholder="Misal: 90" style="padding: 16px; font-weight: 700;">
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px; justify-content:center;">
+                <label class="custom-switch">
+                    <span class="switch-label">ACAK SOAL</span>
+                    <input type="checkbox" id="shuffleQuestions" checked>
+                    <div class="switch-indicator"></div>
+                </label>
+                <label class="custom-switch">
+                    <span class="switch-label">SEMBUNYIKAN NOMOR</span>
+                    <input type="checkbox" id="hideNumbers" checked>
+                    <div class="switch-indicator"></div>
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-lg" style="width:100%; margin-top:32px; font-size: 1.2rem; padding: 20px;"
+            onclick="App.startQuiz()" id="startQuizBtn">MULAI SEKARANG</button>
+    </div>
+</section>
