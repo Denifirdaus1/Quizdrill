@@ -782,19 +782,22 @@ const App = (() => {
         const idx = Quiz.getCurrentIndex();
         const total = Quiz.getTotal();
         const hideNumbers = Quiz.isHideNumbers();
+        const questionNo = Number.isInteger(q?.orderIndex) && q.orderIndex > 0
+            ? q.orderIndex
+            : (idx + 1);
 
         const progressTextEl = document.getElementById('quizProgressText');
         const progressBarEl = document.getElementById('quizProgressBar');
         const questionNumberEl = document.getElementById('quizQuestionNumber');
 
-        progressTextEl.textContent = hideNumbers ? 'MODE TANPA NOMOR' : `${idx + 1} / ${total}`;
+        progressTextEl.textContent = hideNumbers ? 'MODE TANPA NOMOR' : `${questionNo} / ${total}`;
         progressBarEl.style.width = `${((idx + 1) / total) * 100}%`;
         if (questionNumberEl) {
             if (hideNumbers) {
                 questionNumberEl.textContent = '';
                 questionNumberEl.classList.add('hidden');
             } else {
-                questionNumberEl.textContent = `SOAL ${idx + 1} DARI ${total}`;
+                questionNumberEl.textContent = `SOAL ${questionNo} DARI ${total}`;
                 questionNumberEl.classList.remove('hidden');
             }
         }
