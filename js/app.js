@@ -785,9 +785,19 @@ const App = (() => {
 
         const progressTextEl = document.getElementById('quizProgressText');
         const progressBarEl = document.getElementById('quizProgressBar');
+        const questionNumberEl = document.getElementById('quizQuestionNumber');
 
         progressTextEl.textContent = hideNumbers ? 'MODE TANPA NOMOR' : `${idx + 1} / ${total}`;
         progressBarEl.style.width = `${((idx + 1) / total) * 100}%`;
+        if (questionNumberEl) {
+            if (hideNumbers) {
+                questionNumberEl.textContent = '';
+                questionNumberEl.classList.add('hidden');
+            } else {
+                questionNumberEl.textContent = `SOAL ${idx + 1} DARI ${total}`;
+                questionNumberEl.classList.remove('hidden');
+            }
+        }
 
         const imgEl = document.getElementById('quizQuestionImage');
         if (q.imageUrl) {
