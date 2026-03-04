@@ -993,6 +993,124 @@ textarea:focus {
   transform: translateY(0);
 }
 
+/* ===== REVIEW SECTION UX ===== */
+.review-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--bg);
+  border: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.05);
+}
+
+.review-card-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-2);
+}
+
+.review-q-num {
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.review-badge {
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  color: var(--bg);
+}
+
+.review-badge.correct {
+  background: var(--text);
+}
+
+.review-badge.wrong {
+  background: #ff3333;
+}
+
+.review-badge.skipped {
+  background: var(--text-3);
+}
+
+.review-question {
+  padding: 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  border-bottom: 2px dashed var(--border);
+}
+
+.review-img-wrapper {
+  margin-bottom: 16px;
+}
+
+.review-img-wrapper img {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border: 2px solid var(--border);
+  background: var(--bg-2);
+}
+
+.review-answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 24px;
+  gap: 24px;
+}
+
+.review-answer-box {
+  padding: 16px;
+  border: 2px solid var(--border);
+  background: var(--bg-2);
+}
+
+.review-answer-box.correct {
+  border-color: var(--text);
+  background: var(--bg);
+}
+
+.review-answer-box.wrong {
+  border-color: #ff3333;
+  background: #fff8f8;
+}
+
+.review-answer-box.skipped {
+  border-color: var(--border);
+  background: var(--bg-3);
+}
+
+.ans-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.ans-content {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   #mainContent {

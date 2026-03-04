@@ -917,14 +917,79 @@ const App = (() => {
         const questions = Store.getQuestions();
         const labels = ['A', 'B', 'C', 'D', 'E'];
 
-        section.innerHTML = currentResults.answers.map(a => {
+        section.innerHTML = currentResults.answers.map((a, index) => {
             const q = questions.find(qu => qu.id === a.questionId);
             if (!q) return '';
+
+            let statusBadge = '';
+            let borderColor = '';
+
+            if (a.status === 'correct') {
+                statusBadge = '<span class="review-badge correct">BENAR</span>';
+                borderColor = 'var(--text)';
+            } else if (a.status === 'skipped') {
+                statusBadge = '<span class="review-badge skipped">DILEWATI</span>';
+                borderColor = 'var(--text-3)';
+            } else {
+                statusBadge = '<span class="review-badge wrong">SALAH</span>';
+                borderColor = '#ff3333';
+            }
+
+            let userAnswerHtml = '';
+            let correctAnswerHtml = '';
+
+            if (q.type === 'pg') {
+                const hasAnswer = a.userAnswer !== null && a.userAnswer !== undefined && a.userAnswer !== '';
+                const userAnsLabel = hasAnswer ? labels[a.userAnswer] : '-';
+                const userAnsText = hasAnswer ? renderLatexText(q.options[a.userAnswer] || '') : 'Kosong';
+                const correctAnsLabel = labels[q.correctAnswer];
+                const correctAnsText = renderLatexText(q.options[q.correctAnswer] || '');
+
+                userAnswerHtml = `
+                    <div class="review-answer-box ${a.status}">
+                        <div class="ans-label">JAWABAN ANDA:</div>
+                        <div class="ans-content"><strong>${userAnsLabel}.</strong> ${userAnsText}</div>
+                    </div>`;
+                correctAnswerHtml = `
+                    <div class="review-answer-box correct">
+                        <div class="ans-label">KUNCI JAWABAN:</div>
+                        <div class="ans-content"><strong>${correctAnsLabel}.</strong> ${correctAnsText}</div>
+                    </div>`;
+            } else {
+                const hasAnswer = a.userAnswer !== null && a.userAnswer !== undefined && a.userAnswer !== '';
+                const userAnsText = hasAnswer ? a.userAnswer : '-';
+                const correctAnsText = q.correctAnswerText || '';
+
+                userAnswerHtml = `
+                    <div class="review-answer-box ${a.status}">
+                        <div class="ans-label">JAWABAN ANDA:</div>
+                        <div class="ans-content">${renderLatexText(userAnsText)}</div>
+                    </div>`;
+                correctAnswerHtml = `
+                    <div class="review-answer-box correct">
+                        <div class="ans-label">KUNCI JAWABAN:</div>
+                        <div class="ans-content">${renderLatexText(correctAnsText)}</div>
+                    </div>`;
+            }
+
+            let imageHtml = '';
+            if (q.imageUrl) {
+                imageHtml = `<div class="review-img-wrapper"><img src="${q.imageUrl}" class="review-question-img" alt="Soal Image" /></div>`;
+            }
+
             return `
-        <div class="review-item" style="border-left: 4px solid ${a.isCorrect ? '#000' : '#ccc'}">
-          <div class="review-question">${renderLatexText(q.question)}</div>
-          <div class="review-answer">
-            JAWABAN: ${q.type === 'pg' ? labels[q.correctAnswer] : q.correctAnswerText}
+        <div class="review-card" style="border-left: 6px solid ${borderColor}">
+          <div class="review-card-header">
+            <span class="review-q-num">SOAL ${index + 1}</span>
+            ${statusBadge}
+          </div>
+          <div class="review-question">
+            ${imageHtml}
+            <div class="review-q-text">${renderLatexText(q.question)}</div>
+          </div>
+          <div class="review-answers-grid">
+            ${userAnswerHtml}
+            ${correctAnswerHtml}
           </div>
         </div>
       `;
