@@ -666,14 +666,36 @@ const App = (() => {
     }
 
     // ===== QUIZ =====
+    function bindQuizSwitchControl(inputId) {
+        const input = document.getElementById(inputId);
+        const container = input?.closest('.custom-switch');
+        if (!input || !container || container.dataset.boundSwitch === '1') return;
+
+        container.dataset.boundSwitch = '1';
+        container.addEventListener('click', (event) => {
+            if (event.target === input) return;
+            event.preventDefault();
+            input.checked = !input.checked;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+    }
+
     function refreshQuizSetup() {
         const all = Store.getQuestions().length;
         const weak = Store.getWeakQuestions().length;
         const flagged = Store.getFlaggedQuestions().length;
+        const settings = Store.getSettings();
+        const shuffleInput = document.getElementById('shuffleQuestions');
+        const hideNumbersInput = document.getElementById('hideNumbers');
+
+        bindQuizSwitchControl('shuffleQuestions');
+        bindQuizSwitchControl('hideNumbers');
 
         document.getElementById('allCount').textContent = `${all} SOAL`;
         document.getElementById('focusCount').textContent = `${weak} SOAL`;
         document.getElementById('flaggedCount').textContent = `${flagged} SOAL`;
+        if (shuffleInput) shuffleInput.checked = settings.quizShuffleQuestions !== false;
+        if (hideNumbersInput) hideNumbersInput.checked = settings.quizHideNumbers !== false;
 
         document.getElementById('startQuizBtn').disabled = all === 0;
     }
@@ -681,10 +703,14 @@ const App = (() => {
     function startQuiz() {
         optionFeedback = null;
         const mode = document.querySelector('input[name="quizMode"]:checked').value;
-        const shuffleQ = document.getElementById('shuffleQuestions').checked;
-        const hideNumbers = document.getElementById('hideNumbers').checked;
+        const shuffleQ = document.getElementById('shuffleQuestions')?.checked === true;
+        const hideNumbers = document.getElementById('hideNumbers')?.checked === true;
         const timerVal = document.getElementById('timerInput').value;
         const timerMinutes = timerVal ? parseInt(timerVal) : 0;
+        Store.saveSettings({
+            quizShuffleQuestions: shuffleQ,
+            quizHideNumbers: hideNumbers
+        }).catch(err => console.warn('Gagal simpan preferensi quiz:', err));
 
         const result = Quiz.start({ mode, shuffleQuestions: shuffleQ, hideNumbers, timerMinutes });
 

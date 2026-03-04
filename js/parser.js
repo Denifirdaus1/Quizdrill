@@ -22,6 +22,19 @@ const Parser = (() => {
         return value;
     }
 
+    function parseOrderIndex(value) {
+        if (typeof value === 'number' && Number.isInteger(value) && value > 0) {
+            return value;
+        }
+
+        if (typeof value === 'string') {
+            const parsed = parseInt(value.trim(), 10);
+            if (Number.isInteger(parsed) && parsed > 0) return parsed;
+        }
+
+        return null;
+    }
+
     function normalizeOptionMap(rawOptions) {
         const mapped = {};
 
@@ -96,6 +109,9 @@ const Parser = (() => {
         const textRaw = pickField(raw, ['teks', 'question', 'soal', 'pertanyaan', 'text', 'stem']);
         const questionText = textRaw !== null ? String(textRaw).trim() : '';
         if (!questionText) return null;
+        const orderIndex = parseOrderIndex(
+            pickField(raw, ['order_index', 'orderIndex', 'urutan', 'nomor', 'no', 'number', 'order'])
+        );
 
         const answerRaw = pickField(raw, [
             'jawaban',
@@ -121,7 +137,8 @@ const Parser = (() => {
                     options: optionList,
                     correctAnswer: correctAnswer >= 0 ? correctAnswer : defaultCorrectAnswer,
                     correctAnswerText: '',
-                    imageUrl: null
+                    imageUrl: null,
+                    orderIndex
                 },
                 missingAnswerKey: correctAnswer < 0
             };
@@ -134,7 +151,8 @@ const Parser = (() => {
                 options: [],
                 correctAnswer: -1,
                 correctAnswerText: answerRaw !== null ? String(answerRaw).trim() : '',
-                imageUrl: null
+                imageUrl: null,
+                orderIndex
             },
             missingAnswerKey: false
         };
@@ -205,6 +223,7 @@ const Parser = (() => {
             const qMatch = line.match(/^(\d+)\s*[.)]\s*(.+)/);
             if (qMatch) {
                 const questionText = qMatch[2];
+                const orderIndex = parseOrderIndex(qMatch[1]);
                 const options = [];
                 let correctAnswer = -1;
                 let correctAnswerText = '';
@@ -248,7 +267,8 @@ const Parser = (() => {
                         options: options.slice(0, 5),
                         correctAnswer: correctAnswer >= 0 ? correctAnswer : defaultCorrectAnswer,
                         correctAnswerText: '',
-                        imageUrl: null
+                        imageUrl: null,
+                        orderIndex
                     });
                 } else {
                     // Essay question
@@ -258,7 +278,8 @@ const Parser = (() => {
                         options: [],
                         correctAnswer: -1,
                         correctAnswerText: correctAnswerText || '',
-                        imageUrl: null
+                        imageUrl: null,
+                        orderIndex
                     });
                 }
             } else {

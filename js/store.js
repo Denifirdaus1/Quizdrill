@@ -89,12 +89,68 @@ const Store = (() => {
         return arr.slice(0, 5).map(opt => String(opt || ''));
     }
 
+    function normalizeOrderIndex(value, fallback = null) {
+        if (Number.isInteger(value) && value > 0) return value;
+        if (typeof value === 'string') {
+            const parsed = parseInt(value, 10);
+            if (Number.isInteger(parsed) && parsed > 0) return parsed;
+        }
+        if (Number.isInteger(fallback) && fallback > 0) return fallback;
+        return null;
+    }
+
+    function getSortableOrderIndex(question) {
+        return Number.isInteger(question?.orderIndex) && question.orderIndex > 0
+            ? question.orderIndex
+            : Number.MAX_SAFE_INTEGER;
+    }
+
+    function getSortableCreatedAt(question) {
+        const value = question?.createdAt ? Date.parse(question.createdAt) : NaN;
+        return Number.isFinite(value) ? value : 0;
+    }
+
+    function compareQuestionOrder(a, b) {
+        const orderA = getSortableOrderIndex(a);
+        const orderB = getSortableOrderIndex(b);
+        if (orderA !== orderB) return orderA - orderB;
+
+        const createdA = getSortableCreatedAt(a);
+        const createdB = getSortableCreatedAt(b);
+        if (createdA !== createdB) return createdA - createdB;
+
+        return String(a?.id || '').localeCompare(String(b?.id || ''));
+    }
+
+    function getNextOrderIndex() {
+        const max = state.questions.reduce((acc, question) => {
+            const value = Number.isInteger(question?.orderIndex) ? question.orderIndex : 0;
+            return value > acc ? value : acc;
+        }, 0);
+        return max + 1;
+    }
+
+    function normalizeLocalQuestionOrder(questions = []) {
+        const ordered = [...questions].sort(compareQuestionOrder);
+        let changed = false;
+        const withIndex = ordered.map((question, idx) => {
+            const expectedOrder = idx + 1;
+            if (question?.orderIndex !== expectedOrder) {
+                changed = true;
+            }
+            return { ...question, orderIndex: expectedOrder };
+        });
+
+        return { changed, questions: withIndex };
+    }
+
     function rowToQuestion(row) {
         return {
             id: row.id,
             type: row.type,
             question: row.question_text,
             imageUrl: row.image_url,
+            orderIndex: normalizeOrderIndex(row.order_index),
             options: row.type === 'pg' ? padOptions(row.options || []) : [],
             correctAnswer: row.type === 'pg' ? (Number.isInteger(row.correct_answer) ? row.correct_answer : 0) : -1,
             correctAnswerText: row.correct_answer_text || '',
@@ -124,6 +180,7 @@ const Store = (() => {
                 ? (Number.isInteger(q.correctAnswer) ? q.correctAnswer : 0)
                 : -1,
             correct_answer_text: q.correctAnswerText || '',
+            order_index: normalizeOrderIndex(q.orderIndex),
             flagged: !!q.flagged,
             stats_attempts: Number.isInteger(q?.stats?.attempts) ? q.stats.attempts : 0,
             stats_correct: Number.isInteger(q?.stats?.correct) ? q.stats.correct : 0,
@@ -232,12 +289,13 @@ const Store = (() => {
         }
     }
 
-    function normalizeQuestionInput(q) {
+    function normalizeQuestionInput(q, fallbackOrderIndex = null) {
         return {
-            id: uuid(),
+            id: q.id || uuid(),
             type: q.type || 'pg',
             question: q.question || '',
             imageUrl: q.imageUrl || null,
+            orderIndex: normalizeOrderIndex(q.orderIndex, fallbackOrderIndex),
             options: q.type === 'essay' ? [] : padOptions(q.options || []),
             correctAnswer: q.type === 'essay' ? -1 : (Number.isInteger(q.correctAnswer) ? q.correctAnswer : 0),
             correctAnswerText: q.correctAnswerText || '',
@@ -252,7 +310,7 @@ const Store = (() => {
                 avgResponseMs: Number.isInteger(q?.stats?.avgResponseMs) ? q.stats.avgResponseMs : 0,
                 lastAttempt: q?.stats?.lastAttempt || null
             },
-            createdAt: new Date().toISOString()
+            createdAt: q.createdAt || new Date().toISOString()
         };
     }
 
@@ -267,7 +325,9 @@ const Store = (() => {
             client.from(TABLES.questions)
                 .select('*')
                 .eq('device_id', state.deviceId)
-                .order('created_at', { ascending: true }),
+                .order('order_index', { ascending: true, nullsFirst: false })
+                .order('created_at', { ascending: true })
+                .order('id', { ascending: true }),
             client.from(TABLES.sessions)
                 .select('*')
                 .eq('device_id', state.deviceId)
@@ -308,7 +368,7 @@ const Store = (() => {
         }
 
         const idMap = new Map();
-        const questionRows = localQuestions.map(raw => {
+        const questionRows = localQuestions.map((raw, idx) => {
             const newId = uuid();
             idMap.set(raw.id, newId);
             const normalized = {
@@ -316,6 +376,7 @@ const Store = (() => {
                 type: raw.type || 'pg',
                 question: raw.question || '',
                 imageUrl: raw.imageUrl || null,
+                orderIndex: normalizeOrderIndex(raw.orderIndex, idx + 1),
                 options: raw.type === 'essay' ? [] : padOptions(raw.options || []),
                 correctAnswer: Number.isInteger(raw.correctAnswer) ? raw.correctAnswer : 0,
                 correctAnswerText: raw.correctAnswerText || '',
@@ -380,6 +441,9 @@ const Store = (() => {
         state.questions = _get(KEYS.questions) || [];
         state.sessions = _get(KEYS.sessions) || [];
         state.settings = _get(KEYS.settings) || {};
+        const localNormalized = normalizeLocalQuestionOrder(state.questions);
+        state.questions = localNormalized.questions;
+        if (localNormalized.changed) persistCache();
 
         if (!client) {
             state.initialized = true;
@@ -389,10 +453,21 @@ const Store = (() => {
         try {
             const remote = await fetchRemoteSnapshot();
             const merged = await migrateLegacyDataIfNeeded(remote);
-            state.questions = merged.questions;
+            const normalized = normalizeLocalQuestionOrder(merged.questions);
+            state.questions = normalized.questions;
             state.sessions = merged.sessions;
             state.settings = merged.settings || {};
             persistCache();
+
+            if (normalized.changed && state.questions.length > 0) {
+                const updateRows = state.questions.map(q =>
+                    client.from(TABLES.questions)
+                        .update({ order_index: q.orderIndex })
+                        .eq('id', q.id)
+                        .eq('device_id', state.deviceId)
+                );
+                await Promise.all(updateRows);
+            }
         } catch (err) {
             console.error('Gagal sync Supabase, pakai cache lokal:', err);
         } finally {
@@ -401,11 +476,13 @@ const Store = (() => {
     }
 
     function getQuestions() {
-        return [...state.questions];
+        return [...state.questions].sort(compareQuestionOrder);
     }
 
     async function saveQuestions(questions) {
-        state.questions = Array.isArray(questions) ? questions.map(q => ({ ...q })) : [];
+        const incoming = Array.isArray(questions) ? questions.map(q => ({ ...q })) : [];
+        const normalized = normalizeLocalQuestionOrder(incoming);
+        state.questions = normalized.questions;
         persistCache();
 
         if (!client) return;
@@ -422,7 +499,7 @@ const Store = (() => {
     }
 
     async function addQuestion(q) {
-        const normalized = normalizeQuestionInput(q);
+        const normalized = normalizeQuestionInput(q, getNextOrderIndex());
 
         if (client) {
             const { data, error } = await client.from(TABLES.questions)
@@ -440,7 +517,10 @@ const Store = (() => {
     }
 
     async function addQuestionsBulk(questions = []) {
-        const normalizedList = questions.map(normalizeQuestionInput);
+        const firstOrderIndex = getNextOrderIndex();
+        const normalizedList = questions.map((question, idx) =>
+            normalizeQuestionInput({ ...question, orderIndex: null }, firstOrderIndex + idx)
+        );
         if (normalizedList.length === 0) return [];
 
         if (client) {
